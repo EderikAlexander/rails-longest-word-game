@@ -1,0 +1,23 @@
+
+
+<h2>
+<%=  "******** Welcome to the longest word-game !********" %>
+</h2>
+<%=  "Here is your grid :" %>
+<%  @grid %>
+<%=   @grid.join(" ") %>
+<%=  "*****************************************************" %>
+
+
+<form action="/result" class="form-group" method="post">
+  <label for="question">What's your best shot ?</label>
+  <input type="hidden" name="grid" value="<%= @grid.join %>">
+  <input type="hidden" name="start_time" value="<%= Time.now.to_i %>">
+  <input type="text" id="question" name="attempt" placeholder="fill in your word">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="submit" value="Go on!">
+</form>
+
+
+
+
